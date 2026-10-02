@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: applicazione1
+  config:
+    import: classpath:core-defaults.yml
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;MODE=MySQL
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: ""
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    properties:
+      hibernate:
+        default_schema: PUBLIC
+    hibernate:
+      ddl-auto: update
+    show-sql: true # Opzionale: mostra le query SQL nei log durante i test
+  flyway:
+    enabled: false
+server:
+  port: 8081

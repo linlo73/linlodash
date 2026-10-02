@@ -1,0 +1,36 @@
+# Configurazione condivisa, importata da ogni applicazione con spring.config.import.
+# Postgres (default):  DB_URL=jdbc:postgresql://localhost:5432/linlodash
+# MariaDB:             DB_URL=jdbc:mariadb://localhost:3306/linlodash
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://pg-linlodash:5432/linlodash}
+    username: ${DB_USER:administrator}
+    password: ${DB_PASSWORD:mela-change-me}
+  jpa:
+    open-in-view: false
+    properties:
+      hibernate:
+        default_schema: ${DB_SCHEMA:public}
+    hibernate:
+      ddl-auto: ${DDL_AUTO:validate}
+
+  flyway:
+    enabled: ${FLYWAY_ENABLED:true}
+    locations: classpath:db/migration
+    default-schema: public
+    schemas: public,${DB_SCHEMA:shopping}
+    # Le installazioni esistenti vengono adottate alla versione corrente.
+    # Un database vuoto esegue invece tutte le migrazioni dalla V1.
+    baseline-on-migrate: true
+    baseline-version: 2
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
+app:
+  messages:
+    basename: ${MESSAGES_BASENAME:file:./config/messages}
+  jwt:
+    secret: ${JWT_SECRET:dev-only-secret-change-me-0123456789-abcdef}  # minimo 32 caratteri
+    expiration-minutes: 60

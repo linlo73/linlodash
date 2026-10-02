@@ -1,0 +1,15 @@
+# Frontend
+**/node_modules/
+**/dist/
+**/.angular/
+
+# Backend Java
+**/target/
+**/.gradle/
+**/build/
+**/.idea/
+**/*.iml
+**/.settings/
+**/.project/
+**/.classpath/
+

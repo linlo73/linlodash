@@ -1,0 +1,38 @@
+{
+  "frontend": {
+    "login": {
+      "title": "Accedi al tuo account",
+      "button": "Invia",
+      "username_placeholder": "Inserisci l'email"
+    },
+    "dashboard": {
+      "welcome": "Benvenuto nella tua area personale"
+    }
+  },
+  "backend": {
+    "emails": {
+      "welcome_subject": "Benvenuto sulla nostra piattaforma!",
+      "reset_password_body": "Clicca qui per reimpostare la password..."
+    }
+  },
+  "shared": {
+    "errors": {
+      "auth":{
+        "username_taken": "Username già in uso",
+        "email_registered": "Email già registrata",
+        "credentials": "Credenziali non valide",
+        "access-denied": "Accesso negato"
+      },
+      "validation":{
+        "notblank": "Il campo è obbligatorio.",
+        "email": "Inserisci un indirizzo email valido.",
+        "username_size": "Il nome utente deve contenere tra 3 e 50 caratteri.",
+        "email_size": "L'email non può superare 150 caratteri.",
+        "password_size": "La password deve contenere tra 8 e 100 caratteri."
+      }
+    },
+    "greeting":"Ciao {0}",
+    "admin_greeting":"Area admin per {0}"
+
+  }
+}

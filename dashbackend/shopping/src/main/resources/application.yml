@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: shopping
+  config:
+    import: classpath:core-defaults.yml
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://pg-linlodash:5432/linlodash}
+    username: ${DB_USER:administrator}
+    password: ${DB_PASSWORD:mela-change-me}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      # 'validate' verifica che le tue entità Java corrispondano alle tabelle create dal client esterno.
+      # Se preferisci che Spring crei le tabelle mancanti senza cancellare i dati, usa 'update'.
+      ddl-auto: validate
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+server:
+  port: 8082

@@ -1,0 +1,42 @@
+services:
+  pg-linlodash:
+    image: postgres:16
+    container_name: pg-linlodash
+    restart: always
+    environment:
+      POSTGRES_USER: ${DB_USER:-administrator}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-mela-change-me}
+      POSTGRES_DB: ${POSTGRES_SHOPPING_DB:-linlodash}
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata-linlodash:/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U ${DB_USER:-administrator} -d ${POSTGRES_SHOPPING_DB:-linlodash}" ]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    networks: [ linlodash-net ]
+    # Nessuna porta esposta all'host: il database è raggiungibile solo dal servizio shopping.
+    # Per debug locale, scommenta:
+  shopping:
+    build:
+      context: .
+      dockerfile: shopping/Dockerfile
+    env_file: shopping/.env
+    ports: [ "8082:8082" ]
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://pg-linlodash:5432/linlodash
+      SPRING_DATASOURCE_USERNAME: ${DB_USER:-administrator}
+      SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD:-mela-change-me}
+    volumes:
+      - ./config:/app/config:ro
+    depends_on:
+      pg-linlodash:
+        condition: service_healthy
+    restart: unless-stopped
+    networks: [ linlodash-net ]
+networks:
+  linlodash-net:
+volumes:
+  pgdata-linlodash:
