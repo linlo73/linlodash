@@ -1,0 +1,12 @@
+<section class="auth-card">
+  <h1>Registrazione</h1>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <label>Nome <input formControlName="firstName"></label>
+    <label>Cognome <input formControlName="lastName"></label>
+    <label>Username <input formControlName="username"></label>
+    <label>Email <input type="email" formControlName="email"></label>
+    <label>Password <input type="password" formControlName="password"></label>
+    @if (error()) { <p class="error">{{ error() }}</p> }
+    <button type="submit" [disabled]="form.invalid">Registrati</button>
+  </form>
+</section>

@@ -1,0 +1,9 @@
+<section class="auth-card">
+  <h1>Accedi</h1>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <label>Username <input type="text" formControlName="username" autocomplete="current-username"></label>
+    <label>Password <input type="password" formControlName="password" autocomplete="current-password"></label>
+    @if (error()) { <p class="error">{{ error() }}</p> }
+    <button type="submit" [disabled]="form.invalid">Accedi</button>
+  </form>
+</section>

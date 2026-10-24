@@ -1,0 +1,12 @@
+{
+  "auth.login.title": "Sign in",
+  "auth.login.email": "Email",
+  "auth.login.password": "Password",
+  "auth.login.submit": "Sign in",
+  "auth.login.invalidCredentials": "Invalid credentials",
+  "auth.register.title": "Registration",
+  "auth.register.error": "Registration failed",
+  "shopping.title": "Shopping lists",
+  "shopping.newList": "New list",
+  "shopping.addItem": "Add item"
+}

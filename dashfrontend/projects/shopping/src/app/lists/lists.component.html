@@ -1,0 +1,34 @@
+<main>
+  <header>
+    <h1>Liste della spesa</h1>
+    <div class="new-list">
+      <input [(ngModel)]="newListName" placeholder="Nome della lista">
+      <button (click)="addList()">+ Nuova lista</button>
+    </div>
+  </header>
+
+  <section class="lists">
+    @for (list of shopping.lists(); track list.id) {
+      <article class="list-card">
+        <h2>{{ list.name }}</h2>
+        <ul>
+          @for (item of list.items; track item.id) {
+            <li [class.purchased]="item.purchased">
+              <label>
+                <input type="checkbox" [checked]="item.purchased"
+                       (change)="shopping.toggleItem(list.id, item.id)">
+                {{ item.name }} × {{ item.quantity }}
+              </label>
+            </li>
+          } @empty {
+            <li>Nessun prodotto nella lista.</li>
+          }
+        </ul>
+        <div class="add-item">
+          <input #itemInput placeholder="Cosa devi comprare?">
+          <button (click)="addItem(list.id, itemInput)">Aggiungi</button>
+        </div>
+      </article>
+    }
+  </section>
+</main>
