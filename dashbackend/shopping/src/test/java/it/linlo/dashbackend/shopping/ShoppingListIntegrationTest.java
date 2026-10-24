@@ -58,7 +58,8 @@ class ShoppingIntegrationTest {
     @Test
     void registerThenCallProtectedEndpointWithToken() throws Exception {
         String token = register("mario1", "mario1@example.com", "password123");
-        mvc.perform(get("/api/shopping/hello").header("Authorization", "Bearer " + token))
+
+        mvc.perform(get("/api/shopping/hello").header("Accept-Language", "it","Authorization", "Bearer " + token))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.message").value("Ciao mario1"));
     }
@@ -66,7 +67,9 @@ class ShoppingIntegrationTest {
     @Test
     void loginWithWrongPasswordReturns401() throws Exception {
         register("luigi1", "luigi1@example.com", "password123");
-        mvc.perform(post("/api/auth/login").contentType(MediaType.APPLICATION_JSON)
+        mvc.perform(post("/api/auth/login")
+                        .header("Accept-Language", "it")
+                        .contentType(MediaType.APPLICATION_JSON)
                         .content(json(Map.of("username", "luigi1", "password", "sbagliata"))))
                 .andExpect(status().isUnauthorized())
                 .andExpect(jsonPath("$.message").value("Credenziali non valide"));
@@ -74,7 +77,9 @@ class ShoppingIntegrationTest {
 
     @Test
     void invalidRegistrationReturns400WithDetails() throws Exception {
-        mvc.perform(post("/api/auth/register").contentType(MediaType.APPLICATION_JSON)
+        mvc.perform(post("/api/auth/register")
+                        .header("Accept-Language", "it")
+                        .contentType(MediaType.APPLICATION_JSON)
                         .content(json(Map.of("username", "x", "email", "non-una-email", "password", "corta"))))
                 .andExpect(status().isBadRequest())
                 .andExpect(jsonPath("$.message").value("Errore di validazione"))

@@ -1,160 +1,91 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
-  "cli": {
-    "packageManager": "npm"
-  },
   "newProjectRoot": "projects",
   "projects": {
-    "auth-shared": {
+    "auth": {
       "projectType": "library",
-      "root": "projects/auth-shared",
-      "sourceRoot": "projects/auth-shared/src",
-      "prefix": "lib",
+      "root": "projects/auth",
+      "sourceRoot": "projects/auth/src",
+      "prefix": "linlo",
       "architect": {
         "build": {
           "builder": "@angular/build:ng-packagr",
           "configurations": {
-            "production": {
-              "tsConfig": "projects/auth-shared/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "projects/auth-shared/tsconfig.lib.json"
-            }
+            "production": { "tsConfig": "projects/auth/tsconfig.lib.prod.json" },
+            "development": { "tsConfig": "projects/auth/tsconfig.lib.json" }
           },
           "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@angular/build:unit-test",
-          "options": {
-            "tsConfig": "projects/auth-shared/tsconfig.spec.json"
-          }
         }
       }
     },
-    "app-expenses": {
+    "shopping": {
       "projectType": "application",
-      "schematics": {},
-      "root": "projects/app-expenses",
-      "sourceRoot": "projects/app-expenses/src",
-      "prefix": "app",
+      "root": "projects/shopping",
+      "sourceRoot": "projects/shopping/src",
+      "prefix": "shopping",
       "architect": {
         "build": {
           "builder": "@angular/build:application",
           "options": {
-            "browser": "projects/app-expenses/src/main.ts",
-            "tsConfig": "projects/app-expenses/tsconfig.app.json",
+            "browser": "projects/shopping/src/main.ts",
+            "tsConfig": "projects/shopping/tsconfig.app.json",
+            "index": "projects/shopping/src/index.html",
+            "polyfills": ["zone.js"],
             "assets": [
               {
                 "glob": "**/*",
-                "input": "projects/app-expenses/public"
+                "input": "projects/shopping/public",
+                "output": "/"
               }
             ],
-            "styles": [
-              "projects/app-expenses/src/styles.css"
-            ]
+            "styles": ["projects/shopping/src/styles.css"]
           },
           "configurations": {
-            "production": {
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
-                }
-              ],
-              "outputHashing": "all"
-            },
-            "development": {
-              "optimization": false,
-              "extractLicenses": false,
-              "sourceMap": true
-            }
+            "production": { "outputHashing": "all" },
+            "development": { "optimization": false, "sourceMap": true }
           },
           "defaultConfiguration": "production"
         },
         "serve": {
           "builder": "@angular/build:dev-server",
           "configurations": {
-            "production": {
-              "buildTarget": "app-expenses:build:production"
-            },
-            "development": {
-              "buildTarget": "app-expenses:build:development"
-            }
+            "production": { "buildTarget": "shopping:build:production" },
+            "development": { "buildTarget": "shopping:build:development" }
           },
           "defaultConfiguration": "development"
-        },
-        "test": {
-          "builder": "@angular/build:unit-test"
         }
       }
     },
-    "app-recipes": {
+    "auth-demo": {
       "projectType": "application",
-      "schematics": {},
-      "root": "projects/app-recipes",
-      "sourceRoot": "projects/app-recipes/src",
-      "prefix": "app",
+      "root": "projects/auth-demo",
+      "sourceRoot": "projects/auth-demo/src",
+      "prefix": "auth-demo",
       "architect": {
         "build": {
           "builder": "@angular/build:application",
           "options": {
-            "browser": "projects/app-recipes/src/main.ts",
-            "tsConfig": "projects/app-recipes/tsconfig.app.json",
-            "assets": [
-              {
-                "glob": "**/*",
-                "input": "projects/app-recipes/public"
-              }
-            ],
-            "styles": [
-              "projects/app-recipes/src/styles.css"
-            ]
+            "browser": "projects/auth-demo/src/main.ts",
+            "tsConfig": "projects/auth-demo/tsconfig.app.json",
+            "index": "projects/auth-demo/src/index.html",
+            "polyfills": ["zone.js"],
+            "assets": [],
+            "styles": ["projects/auth-demo/src/styles.css"]
           },
           "configurations": {
-            "production": {
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
-                }
-              ],
-              "outputHashing": "all"
-            },
-            "development": {
-              "optimization": false,
-              "extractLicenses": false,
-              "sourceMap": true
-            }
+            "production": { "outputHashing": "all" },
+            "development": { "optimization": false, "sourceMap": true }
           },
           "defaultConfiguration": "production"
         },
         "serve": {
           "builder": "@angular/build:dev-server",
           "configurations": {
-            "production": {
-              "buildTarget": "app-recipes:build:production"
-            },
-            "development": {
-              "buildTarget": "app-recipes:build:development"
-            }
+            "production": { "buildTarget": "auth-demo:build:production" },
+            "development": { "buildTarget": "auth-demo:build:development" }
           },
           "defaultConfiguration": "development"
-        },
-        "test": {
-          "builder": "@angular/build:unit-test"
         }
       }
     }

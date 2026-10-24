@@ -1,13 +1,9 @@
-/* To learn more about Typescript configuration file: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html. */
-/* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "paths": {
-      "auth-shared": [
-        "./dist/auth-shared"
-      ]
-    },
+    "rootDir": "./projects",
+    "outDir": "./dist/out-tsc",
+    "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
@@ -15,34 +11,14 @@
     "skipLibCheck": true,
     "isolatedModules": true,
     "experimentalDecorators": true,
-    "importHelpers": true,
+    "moduleResolution": "bundler",
     "target": "ES2022",
-    "module": "preserve"
-  },
-  "angularCompilerOptions": {
-    "enableI18nLegacyMessageIdFormat": false,
-    "strictInjectionParameters": true,
-    "strictInputAccessModifiers": true
-  },
-  "files": [],
-  "references": [
-    {
-      "path": "./projects/auth-shared/tsconfig.lib.json"
-    },
-    {
-      "path": "./projects/auth-shared/tsconfig.spec.json"
-    },
-    {
-      "path": "./projects/app-expenses/tsconfig.app.json"
-    },
-    {
-      "path": "./projects/app-expenses/tsconfig.spec.json"
-    },
-    {
-      "path": "./projects/app-recipes/tsconfig.app.json"
-    },
-    {
-      "path": "./projects/app-recipes/tsconfig.spec.json"
+    "module": "ES2022",
+    "useDefineForClassFields": false,
+    "lib": ["ES2022", "dom"],
+    "paths": {
+      "@linlo/auth": ["./dist/auth"],
+      "@linlo/auth/*": ["./dist/auth/*"]
     }
-  ]
+  }
 }

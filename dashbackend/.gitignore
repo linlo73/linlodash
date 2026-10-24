@@ -4,5 +4,4 @@ out/
 .idea/
 *.iml
 .env
-applicazione1/.env
 shopping/.env

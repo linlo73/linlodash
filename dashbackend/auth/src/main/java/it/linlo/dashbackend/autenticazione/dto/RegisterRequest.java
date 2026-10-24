@@ -8,7 +8,7 @@ public record RegisterRequest(
         @NotBlank(message = "{validation.notBlank}")
         @Size(min = 3, max = 50, message = "{validation.username.size}") String username,
         @NotBlank(message = "{validation.notBlank}")
-        @Email(message = "{validation.email}")
+        @Email(message = "{validation.email.invalid}")
         @Size(max = 150, message = "{validation.email.size}") String email,
         @NotBlank(message = "{validation.notBlank}")
         @Size(min = 8, max = 100, message = "{validation.password.size}") String password) {

@@ -28,12 +28,12 @@ una rete Docker propria:
 
 ```bash
 # Sul VPS, prima volta:
-cp applicazione1/.env.example applicazione1/.env   # poi modifica i valori (JWT_SECRET, ecc.)
+cp shopping/.env.example shopping/.env   # poi modifica i valori (JWT_SECRET, ecc.)
 
 # Deploy/aggiornamento di applicazione1 (non tocca shopping):
-./deploy/deploy-applicazione1.sh
+./deploy/deploy-shopping.sh
 # equivalente a:
-docker compose -f docker-compose.applicazione1.yml up -d --build
+docker compose -f docker-compose.shopping.yml up -d --build
 ```
 
 Stesso procedimento con `shopping` e `docker-compose.shopping.yml`. Ognuno di
@@ -147,5 +147,5 @@ indicare un altro basename con `MESSAGES_BASENAME` (per esempio
   del core nello schema `public`; ogni applicazione usa uno schema dedicato tramite
   `DB_SCHEMA` (`applicazione1` o `shopping`).
 - In produzione: Flyway è attivo di default, usa le migrazioni in
-  `core/src/main/resources/db/migration` e Hibernate usa `DDL_AUTO=validate`.
+  `core/src/main/resources/db/migration.core_d` e Hibernate usa `DDL_AUTO=validate`.
   Per disattivarlo temporaneamente si può impostare `FLYWAY_ENABLED=false`.

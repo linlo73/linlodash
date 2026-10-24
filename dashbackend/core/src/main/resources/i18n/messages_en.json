@@ -1,38 +1,101 @@
 {
   "frontend": {
     "login": {
-      "title": "Accedi al tuo account",
-      "button": "Invia",
-      "username_placeholder": "Inserisci l'email"
+      "title": "Sign in to your account",
+      "button": "Submit",
+      "username_placeholder": "Enter your email"
     },
     "dashboard": {
-      "welcome": "Benvenuto nella tua area personale"
+      "welcome": "Welcome to your personal area"
     }
   },
   "backend": {
     "emails": {
-      "welcome_subject": "Benvenuto sulla nostra piattaforma!",
-      "reset_password_body": "Clicca qui per reimpostare la password..."
+      "welcome_subject": "Welcome to our platform!",
+      "reset_password_body": "Click here to reset your password..."
     }
   },
   "shared": {
     "errors": {
-      "auth":{
-        "username_taken": "Username già in uso",
-        "email_registered": "Email già registrata",
-        "credentials": "Credenziali non valide",
-        "access-denied": "Accesso negato"
+      "auth": {
+        "username_taken": "Username is already taken",
+        "email_registered": "Email is already registered",
+        "credentials": "Invalid credentials",
+        "access-denied": "Access denied"
       },
-      "validation":{
-        "notblank": "Il campo è obbligatorio.",
-        "email": "Inserisci un indirizzo email valido.",
-        "username_size": "Il nome utente deve contenere tra 3 e 50 caratteri.",
-        "email_size": "L'email non può superare 150 caratteri.",
-        "password_size": "La password deve contenere tra 8 e 100 caratteri."
+      "validation": {
+        "notblank": "This field is required.",
+        "email": "Enter a valid email address.",
+        "username_size": "Username must contain between 3 and 50 characters.",
+        "email_size": "Email must not exceed 150 characters.",
+        "password_size": "Password must contain between 8 and 100 characters."
       }
     },
-    "greeting":"Ciao {0}",
-    "admin_greeting":"Area admin per {0}"
-
+    "greeting": "Hello {0}",
+    "admin_greeting": "Admin area for {0}"
+  },
+  "error": {
+    "validation": "Validation error",
+    "integrity": "A data integrity conflict occurred",
+    "internal": "An unexpected error occurred",
+    "shopping": {
+      "object": {
+        "not-found": "Object not found"
+      },
+      "list": {
+        "not-found": "List not found"
+      },
+      "list-object": {
+        "not-found": "List-object link not found"
+      },
+      "list-user": {
+        "not-found": "List-user link not found"
+      },
+      "user": {
+        "not-found": "User not found"
+      }
+    },
+    "auth": {
+      "username": {
+        "taken": "Username is already taken"
+      },
+      "email": {
+        "registered": "Email is already registered"
+      },
+      "credentials": "Invalid credentials",
+      "access-denied": "Access denied",
+      "unauthenticated": "Authentication required or token is invalid"
+    }
+  },
+  "auth": {
+    "username": {
+      "taken": "Username is already taken"
+    },
+    "email": {
+      "registered": "Email is already registered"
+    }
+  },
+  "validation": {
+    "notBlank": "This field is required.",
+    "notNull": "This field is required.",
+    "username": {
+      "size": "Username must contain between 3 and 50 characters."
+    },
+    "email": {
+      "invalid": "Enter a valid email address.",
+      "size": "Email must not exceed 150 characters."
+    },
+    "password": {
+      "size": "Password must contain between 8 and 100 characters."
+    },
+    "shopping": {
+      "name": {
+        "size": "Name must not exceed 100 characters."
+      }
+    }
+  },
+  "greeting": "Hello {0}",
+  "admin": {
+    "greeting": "Admin area for {0}"
   }
 }

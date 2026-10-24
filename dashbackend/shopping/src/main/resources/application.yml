@@ -17,5 +17,19 @@ spring:
     properties:
       hibernate:
         format_sql: true
+  flyway:
+    table: flyway_schema_history_shopping
+    enabled: ${FLYWAY_ENABLED:false}
+    locations: classpath:db/migration/core,classpath:db/migration/shopping
+    default-schema: shopping
+    schemas: public,${DB_SCHEMA:shopping}
+    # Le installazioni esistenti vengono adottate alla versione corrente.
+    # Un database vuoto esegue invece tutte le migrazioni dalla V1.
+    baseline-on-migrate: true
+    baseline-version: 2
+app:
+  cors:
+    allowed-origins:
+      - "http://localhost:4200"
 server:
   port: 8082

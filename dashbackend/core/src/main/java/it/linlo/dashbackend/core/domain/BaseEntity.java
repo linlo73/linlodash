@@ -21,13 +21,13 @@ public abstract class BaseEntity {
     @Column(nullable = false, updatable = false)
     private Instant createdAt;
 
-    @Column(nullable = false, updatable = false)
+    @Column(updatable = false)
     private UUID createdBy;
 
     @Column(nullable = false)
     private Instant updatedAt;
 
-    @Column(nullable = false)
+    @Column
     private UUID updatedBy;
 
     @PrePersist

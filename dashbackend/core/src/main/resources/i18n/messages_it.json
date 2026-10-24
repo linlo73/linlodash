@@ -17,13 +17,13 @@
   },
   "shared": {
     "errors": {
-      "auth":{
+      "auth": {
         "username_taken": "Username già in uso",
         "email_registered": "Email già registrata",
         "credentials": "Credenziali non valide",
         "access-denied": "Accesso negato"
       },
-      "validation":{
+      "validation": {
         "notblank": "Il campo è obbligatorio.",
         "email": "Inserisci un indirizzo email valido.",
         "username_size": "Il nome utente deve contenere tra 3 e 50 caratteri.",
@@ -31,8 +31,71 @@
         "password_size": "La password deve contenere tra 8 e 100 caratteri."
       }
     },
-    "greeting":"Ciao {0}",
-    "admin_greeting":"Area admin per {0}"
-
+    "greeting": "Ciao {0}",
+    "admin_greeting": "Area admin per {0}"
+  },
+  "error": {
+    "validation": "Errore di validazione",
+    "integrity": "Si è verificato un conflitto di integrità dei dati",
+    "internal": "Si è verificato un errore imprevisto",
+    "shopping": {
+      "object": {
+        "not-found": "Oggetto non trovato"
+      },
+      "list": {
+        "not-found": "Lista non trovata"
+      },
+      "list-object": {
+        "not-found": "Associazione lista-oggetto non trovata"
+      },
+      "list-user": {
+        "not-found": "Associazione lista-utente non trovata"
+      },
+      "user": {
+        "not-found": "Utente non trovato"
+      }
+    },
+    "auth": {
+      "username": {
+        "taken": "Nome utente già in uso"
+      },
+      "email": {
+        "registered": "Email già registrata"
+      },
+      "credentials": "Credenziali non valide",
+      "access-denied": "Accesso negato",
+      "unauthenticated": "Autenticazione richiesta o token non valido"
+    }
+  },
+  "auth": {
+    "username": {
+      "taken": "Nome utente già in uso"
+    },
+    "email": {
+      "registered": "Email già registrata"
+    }
+  },
+  "validation": {
+    "notBlank": "Il campo è obbligatorio.",
+    "notNull": "Il campo è obbligatorio.",
+    "username": {
+      "size": "Il nome utente deve contenere tra 3 e 50 caratteri."
+    },
+    "email": {
+      "invalid": "Inserisci un indirizzo email valido.",
+      "size": "L'email non può superare 150 caratteri."
+    },
+    "password": {
+      "size": "La password deve contenere tra 8 e 100 caratteri."
+    },
+    "shopping": {
+      "name": {
+        "size": "Il nome non può superare 100 caratteri."
+      }
+    }
+  },
+  "greeting": "Ciao {0}",
+  "admin": {
+    "greeting": "Area admin per {0}"
   }
 }

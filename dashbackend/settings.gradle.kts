@@ -1,3 +1,3 @@
 rootProject.name = "dashbackend"
 
-include("core", "auth", "applicazione1", "shopping")
+include("core", "auth", "shopping")
